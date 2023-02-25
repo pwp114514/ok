@@ -1207,7 +1207,8 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
 
-		if(ClientPrefs.enableShaders) {
+		if(ClientPrefs.enableShaders) 
+		{
 			switch(curSong.toLowerCase()) 
 			{
 					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
