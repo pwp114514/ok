@@ -5,7 +5,7 @@ import flixel.graphics.FlxGraphic;
 import Discord.DiscordClient;
 #end
 import Shaders;
-openfl.filters.ShaderFilter;
+import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
