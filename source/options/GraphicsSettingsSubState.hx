@@ -44,6 +44,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
+		var option:Option = new Option('Enable Shaders',
+			'If unchecked, disables shaders in Humiliation, Mist, and Doomsday.\nUse this for lower end computers or if you do not want shaders.',
+			'enableShaders',
+			'bool',
+			true);
+		addOption(option);
+		
 		var option:Option = new Option('Anti-Aliasing',
 			'If unchecked, disables anti-aliasing, increases performance\nat the cost of sharper visuals.',
 			'globalAntialiasing',
