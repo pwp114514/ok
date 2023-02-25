@@ -1735,6 +1735,17 @@ class FunkinLua {
 			FlxG.sound.music.fadeOut(duration, toValue);
 			luaTrace('musicFadeOut is deprecated! Use soundFadeOut instead.', false, true);
 		});
+		Lua_helper.add_callback(lua, "addVCREffect", function(camera:String,glitchFactor:Float = 0.0,distortion:Bool=true,perspectiveOn:Bool=true,vignetteMoving:Bool=true) {
+			
+			PlayState.instance.addShaderToCamera(camera, new VCRDistortionEffect(glitchFactor,distortion,perspectiveOn,vignetteMoving));
+		
+		});
+		
+		//shaders clear
+		Lua_helper.add_callback(lua, "clearShadersFromCamera", function(cameraName)
+		{
+			cameraFromString(cameraName).setFilters([]);
+		});	
 		
 		call('onCreate', []);
 		#end
