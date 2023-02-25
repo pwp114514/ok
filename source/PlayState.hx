@@ -1211,7 +1211,6 @@ class PlayState extends MusicBeatState
 		{
 					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
 					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
-			}
 		}
 
 		if(!ClientPrefs.controllerMode)
