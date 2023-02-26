@@ -5,6 +5,7 @@ import flixel.graphics.FlxGraphic;
 import Discord.DiscordClient;
 #end
 import Shaders;
+import Shaders.FXHandler;
 import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
