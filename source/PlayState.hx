@@ -6,6 +6,7 @@ import Discord.DiscordClient;
 #end
 import Shaders;
 import Shader.FXHandler;
+import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
@@ -231,6 +232,7 @@ class PlayState extends MusicBeatState
 	var canaddshaders:Bool = false;
 	var chromVal:Float = 0;
 	var defaultChromVal:Float = 0;
+	var filters:Array<BitmapFilter> = [];
 	
 
 	public var songScore:Int = 0;
