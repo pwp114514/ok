@@ -356,7 +356,7 @@ class PlayState extends MusicBeatState
 			detailsText = "Freeplay";
 		}
 
-		switch (songLowercase)
+		if(ClientPrefs.enableShaders) 
 		{
 				chromVal = 0.002;
 				defaultChromVal = 0.002;
