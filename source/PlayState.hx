@@ -363,7 +363,7 @@ class PlayState extends MusicBeatState
 				chromVal = 0.002;
 				defaultChromVal = 0.002;
 				if (canaddshaders)
-					filters.push(chromaticAberration);
+					Shader.FXhandler(chromaticAberration);
 		}
 		
 		// String for when the game is paused
