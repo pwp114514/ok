@@ -46,7 +46,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('OS Shaders',
 			'OS Shaders ye',
-			'OS Shaders',
+			'osShaders',
 			'bool',
 			true);
 		addOption(option);
