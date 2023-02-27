@@ -299,6 +299,8 @@ class PlayState extends MusicBeatState
 		];
 
 		// For the "Just the Two of Us" achievement
+		ShadersHandler.setChrome(0.0);
+		
 		for (i in 0...keysArray.length)
 		{
 			keysPressed.push(false);
@@ -1218,8 +1220,7 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.shaders) 
 		{
-					addShaderOffset('camGame', new ChromaticAberration(0, 0, 0));
-					addShaderOffset('camHUD', new ChromaticAberration(0, 0, 0));
+					ShadersHandler.setChrome(1.0);
 		}
 	
 		if(!ClientPrefs.controllerMode)
@@ -1264,41 +1265,7 @@ class PlayState extends MusicBeatState
 		return value;
 	}
 
-	public function addShaderOffset(cam:String,effect:ShaderEffect){
-		switch(cam.toLowerCase()) {
-			case 'camhud' | 'hud':
-				camHUDShaders.push(effect);
-				var newCamEffects:Array<BitmapFilter>=[];
-				for(i in camHUDShaders){
-					newCamEffects.push(new ShaderFilter(i.shader));
-				}
-				camHUD.setFilters(newCamEffects);
-			case 'camother' | 'other':
-				camOtherShaders.push(effect);
-				var newCamEffects:Array<BitmapFilter>=[];
-				for(i in camOtherShaders){
-					newCamEffects.push(new ShaderFilter(i.shader));
-				}
-				camOther.setFilters(newCamEffects);
-			case 'camgame' | 'game':
-				camGameShaders.push(effect);
-				var newCamEffects:Array<BitmapFilter>=[];
-				for(i in camGameShaders){
-					newCamEffects.push(new ShaderFilter(i.shader));
-				}
-				camGame.setFilters(newCamEffects);
-			default:
-				if(modchartSprites.exists(cam)) {
-					Reflect.setProperty(modchartSprites.get(cam),"shader",effect.shader);
-				} else if(modchartTexts.exists(cam)) {
-					Reflect.setProperty(modchartTexts.get(cam),"shader",effect.shader);
-				} else {
-					var OBJ = Reflect.getProperty(PlayState.instance,cam);
-					Reflect.setProperty(OBJ,"shader", effect.shader);
-				}
-		}
-	}
-
+	
 	public function addShaderToCamera(cam:String,effect:ShaderEffect){
 		switch(cam.toLowerCase()) {
 			case 'camhud' | 'hud':
