@@ -10,7 +10,7 @@ class ChromaticAberration extends Effect
 		ChromaticAberration.iTime.value = [0];
 		ChromaticAberration.shader.data.rOffset.value = [rOffset];
 		ChromaticAberration.shader.data.gOffset.value = [gOffset];
-		ChromaticAberration.shader.data.bOffset.value = [bOffset];
+		ChromaticAberration.shader.data.bOffset.value = [bOffset * -1];
 		PlayState.instance.shaderUpdates.push(update);
 	}
 }
