@@ -2,7 +2,7 @@ package;
 
 import openfl.filters.ShaderFilter;
 
-class ChromaticAberration extends Effect 
+class ChromaticAberration
 {
 	public static var ChromaticAberration:ShaderFilter = new ShaderFilter(new ChromaticAberration());
 	public function new(rOffset:Float, gOffset:Float, bOffset:Float) 
