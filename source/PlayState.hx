@@ -5,7 +5,6 @@ import flixel.graphics.FlxGraphic;
 import Discord.DiscordClient;
 #end
 import Shaders;
-import ShadersHandler;
 import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
@@ -1218,11 +1217,7 @@ class PlayState extends MusicBeatState
 					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
 		}
 
-		if(ClientPrefs.shaders) 
-		{
-					ShadersHandler.setChrome(1.0);
-		}
-	
+		
 		if(!ClientPrefs.controllerMode)
 		{
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
