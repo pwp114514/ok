@@ -5,6 +5,7 @@ import flixel.graphics.FlxGraphic;
 import Discord.DiscordClient;
 #end
 import Shaders;
+import ShadersHandler;
 import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
@@ -1217,8 +1218,8 @@ class PlayState extends MusicBeatState
 
 		if(ClientPrefs.shaders) 
 		{
-					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
-					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
+					addShaderOffset('camGame', new ChromaticAberration(0, 0, 0));
+					addShaderOffset('camHUD', new ChromaticAberration(0, 0, 0));
 		}
 	
 		if(!ClientPrefs.controllerMode)
