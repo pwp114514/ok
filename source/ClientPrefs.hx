@@ -13,7 +13,7 @@ class ClientPrefs {
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
-	public static var enableShaders:Bool = true;
+	public static var osShaders:Bool = true;
 	public static var lowQuality:Bool = false;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
@@ -117,7 +117,7 @@ class ClientPrefs {
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
-		FlxG.save.data.enableShaders = enableShaders;
+		FlxG.save.data.osShaders = osShaders;
 		
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
@@ -163,8 +163,8 @@ class ClientPrefs {
 		if(FlxG.save.data.lowQuality != null) {
 			lowQuality = FlxG.save.data.lowQuality;
 		}
-		if(FlxG.save.data.enableShaders != null) {
-			enableShaders = FlxG.save.data.enableShaders;
+		if(FlxG.save.data.osShaders != null) {
+			osShaders = FlxG.save.data.osShaders;
 		}
 		if(FlxG.save.data.kadeEngineWatermark != null) {
 			kadeEngineWatermark = FlxG.save.data.kadeEngineWatermark;
