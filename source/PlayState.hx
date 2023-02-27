@@ -1209,12 +1209,18 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		#end
 
-		if(ClientPrefs.enableShaders) 
+		if(ClientPrefs.osShaders) 
 		{
 					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
 					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
 		}
 
+		if(ClientPrefs.shaders) 
+		{
+					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
+					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
+		}
+	
 		if(!ClientPrefs.controllerMode)
 		{
 			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
@@ -1255,6 +1261,41 @@ class PlayState extends MusicBeatState
 		songSpeed = value;
 		noteKillOffset = 350 / songSpeed;
 		return value;
+	}
+
+	public function addShadersOffset(cam:String,effect:ShaderEffect){
+		switch(cam.toLowerCase()) {
+			case 'camhud' | 'hud':
+				camHUDShaders.push(effect);
+				var newCamEffects:Array<BitmapFilter>=[];
+				for(i in camHUDShaders){
+					newCamEffects.push(new ShaderFilter(i.shader));
+				}
+				camHUD.setFilters(newCamEffects);
+			case 'camother' | 'other':
+				camOtherShaders.push(effect);
+				var newCamEffects:Array<BitmapFilter>=[];
+				for(i in camOtherShaders){
+					newCamEffects.push(new ShaderFilter(i.shader));
+				}
+				camOther.setFilters(newCamEffects);
+			case 'camgame' | 'game':
+				camGameShaders.push(effect);
+				var newCamEffects:Array<BitmapFilter>=[];
+				for(i in camGameShaders){
+					newCamEffects.push(new ShaderFilter(i.shader));
+				}
+				camGame.setFilters(newCamEffects);
+			default:
+				if(modchartSprites.exists(cam)) {
+					Reflect.setProperty(modchartSprites.get(cam),"shader",effect.shader);
+				} else if(modchartTexts.exists(cam)) {
+					Reflect.setProperty(modchartTexts.get(cam),"shader",effect.shader);
+				} else {
+					var OBJ = Reflect.getProperty(PlayState.instance,cam);
+					Reflect.setProperty(OBJ,"shader", effect.shader);
+				}
+		}
 	}
 
 	public function addShaderToCamera(cam:String,effect:ShaderEffect){
