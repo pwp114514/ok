@@ -44,9 +44,9 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
-		var option:Option = new Option('Enable Shaders',
-			'If unchecked, disables shaders in Humiliation, Mist, and Doomsday.\nUse this for lower end computers or if you do not want shaders.',
-			'enableShaders',
+		var option:Option = new Option('OS Shaders',
+			'OS Shaders ye',
+			'OS Shaders',
 			'bool',
 			true);
 		addOption(option);
