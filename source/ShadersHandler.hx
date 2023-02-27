@@ -2,15 +2,16 @@ package;
 
 import openfl.filters.ShaderFilter;
 
-class ChromaticAberration
+class ShadersHandler
 {
 	public static var ChromaticAberration:ShaderFilter = new ShaderFilter(new ChromaticAberration());
-	public function new(rOffset:Float, gOffset:Float, bOffset:Float) 
+	public static var chromeoffsetthing = 0.0;
+
+	public function new(chromeOffset:Float)
 	{
-		ChromaticAberration.iTime.value = [0];
-		ChromaticAberration.shader.data.rOffset.value = [rOffset];
-		ChromaticAberration.shader.data.gOffset.value = [gOffset];
-		ChromaticAberration.shader.data.bOffset.value = [bOffset * -1];
-		PlayState.instance.shaderUpdates.push(update);
+		chromeoffsetthing = chromeOffset;
+		chromaticAberration.shader.data.rOffset.value = [chromeOffset];
+		chromaticAberration.shader.data.gOffset.value = [0.0];
+		chromaticAberration.shader.data.bOffset.value = [chromeOffset * -1];
 	}
 }
