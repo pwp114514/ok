@@ -5,8 +5,6 @@ import flixel.graphics.FlxGraphic;
 import Discord.DiscordClient;
 #end
 import Shaders;
-import Shader.FXHandler;
-import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
 import Section.SwagSection;
 import Song.SwagSong;
@@ -229,11 +227,6 @@ class PlayState extends MusicBeatState
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 	var bgGhouls:BGSprite;
 	
-	var canaddshaders:Bool = false;
-	var chromVal:Float = 0;
-	var defaultChromVal:Float = 0;
-	var filters:Array<BitmapFilter> = [];
-	
 
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
@@ -358,13 +351,6 @@ class PlayState extends MusicBeatState
 			detailsText = "Freeplay";
 		}
 
-		if(ClientPrefs.enableShaders) 
-		{
-				chromVal = 0.002;
-				defaultChromVal = 0.002;
-				if (canaddshaders)
-					Shader.FXhandler(chromaticAberration);
-		}
 		
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
