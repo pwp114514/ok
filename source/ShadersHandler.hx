@@ -4,7 +4,7 @@ import openfl.filters.ShaderFilter;
 
 class ShadersHandler
 {
-	public static var ChromaticAberration:ShaderFilter = new ShaderFilter(new ChromaticAberration());
+	public var ChromaticAberration:ShaderFilter = new ShaderFilter(new ChromaticAberration());
 	public static var chromeoffsetthing = 0.0;
 
 	public function new(chromeOffset:Float)
