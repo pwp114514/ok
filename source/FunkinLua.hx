@@ -6,6 +6,7 @@ import llua.Convert;
 #end
 
 import Shaders;
+import ShadersHandler;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.addons.effects.FlxTrail;
@@ -1742,9 +1743,9 @@ class FunkinLua {
 		
 		});
 		
-		Lua_helper.add_callback(lua, "addShaders", function(rOffset:Float = 0.0, bOffset:Float = 0.0, gOffset:Float = 0.0) {
+		Lua_helper.add_callback(lua, "addChrome", function(chromeOffset:Float) {
 			
-			PlayState.instance.addShaders(new ChromaticAberration(rOffset,bOffset,gOffset));
+			ShadersHandler.setChrom(chromeOffset);
 		
 		});
 		
