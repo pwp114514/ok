@@ -1264,7 +1264,7 @@ class PlayState extends MusicBeatState
 		return value;
 	}
 
-	public function addShadersOffset(cam:String,effect:ShaderEffect){
+	public function addShaderOffset(cam:String,effect:ShaderEffect){
 		switch(cam.toLowerCase()) {
 			case 'camhud' | 'hud':
 				camHUDShaders.push(effect);
