@@ -7,7 +7,7 @@ class ShadersHandler
 	public static var chromaticAberration:ShaderFilter = new ShaderFilter(new ChromaticAberration());
 	public static var chromeoffsetthing = 0.0;
 
-	public function new(chromeOffset:Float)
+	public static function setChrome(chromeOffset:Float):Void
 	{
 		chromeoffsetthing = chromeOffset;
 		chromaticAberration.shader.data.rOffset.value = [chromeOffset];
