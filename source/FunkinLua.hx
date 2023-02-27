@@ -1742,6 +1742,12 @@ class FunkinLua {
 		
 		});
 		
+		Lua_helper.add_callback(lua, "addShaders", function(rOffset:Float = 0.0, bOffset:Float = 0.0, gOffset:Float = 0.0) {
+			
+			PlayState.instance.addShaders(new ChromaticAberration(rOffset,bOffset,gOffset));
+		
+		});
+		
 		//shaders clear
 		Lua_helper.add_callback(lua, "clearShadersFromCamera", function(cameraName)
 		{
