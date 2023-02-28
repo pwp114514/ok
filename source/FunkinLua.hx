@@ -1743,11 +1743,6 @@ class FunkinLua {
 		
 		});
 		
-		Lua_helper.add_callback(lua, "addChrome", function(chromeOffset:Float) {
-			
-			PlayState.instance.setChrom(chromeOffset);
-		
-		});
 		
 		//shaders clear
 		Lua_helper.add_callback(lua, "clearShadersFromCamera", function(cameraName)
