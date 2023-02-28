@@ -1745,7 +1745,7 @@ class FunkinLua {
 		
 		Lua_helper.add_callback(lua, "addChrome", function(chromeOffset:Float) {
 			
-			PlayState.instance.setChrom(chromeOffset);
+			PlayState.setChrom(chromeOffset);
 		
 		});
 		
