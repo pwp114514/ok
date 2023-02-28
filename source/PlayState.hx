@@ -6,6 +6,7 @@ import Discord.DiscordClient;
 #end
 import Shaders;
 import openfl.filters.ShaderFilter;
+import ShadersHandler;
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
@@ -289,6 +290,8 @@ class PlayState extends MusicBeatState
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
 		PauseSubState.songName = null; //Reset to default
+		
+		ShadersHandler.setChrome(0.0);
 
 		keysArray = [
 			ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left')),
@@ -1216,7 +1219,10 @@ class PlayState extends MusicBeatState
 					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
 					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
 		}
-
+		if(ClientPrefs.shaders)
+		{
+					ShadersHandler.setChrome(1.0);
+		}
 		
 		if(!ClientPrefs.controllerMode)
 		{
