@@ -1219,10 +1219,6 @@ class PlayState extends MusicBeatState
 					addShaderToCamera('camGame', new VCRDistortionEffect(0, true, true, true));
 					addShaderToCamera('camHUD', new VCRDistortionEffect(0, true, true, true));
 		}
-		if(ClientPrefs.shaders)
-		{
-					ShadersHandler.setChrome(1.0);
-		}
 		
 		if(!ClientPrefs.controllerMode)
 		{
@@ -2507,6 +2503,15 @@ class PlayState extends MusicBeatState
 			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
 		}
 
+		if (ClientPrefs.shaders) {
+			var chromeOffset:Float = 100;
+			
+			if (chromeOffset <= 0)
+				chromeOffset = 0.0;
+
+			ShadersHandler.setChrome(FlxMath.lerp(ShadersHandler.chromeoffsetthing, chromeOffset, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1)));
+		}
+		
 		if (startingSong)
 		{
 			if (startedCountdown)
